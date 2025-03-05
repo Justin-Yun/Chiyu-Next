@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import 'flowbite';
+
 
 :root {
   background-color: black;
