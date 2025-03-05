@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const Navigation = () => {
-    // Define the button style in a variable
-    const buttonClass = "cta";
+    // const buttonClass = "btn1";
+    const buttonClass = "button-56";
     const navigationContent = (
         <div className="flex justify-center space-x-4 mt-6 mb-10">
             <Link href="/about" className={buttonClass}>

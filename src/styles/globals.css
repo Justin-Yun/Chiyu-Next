@@ -2,7 +2,9 @@
 
 :root {
   background-color: black;
-  font-family: "Courier New", monospace;
+  /* font-family: "Courier New", monospace; */
+  font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+  letter-spacing: 0.055em;
   color: white;
 }
 
@@ -480,4 +482,155 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+}
+
+.btn1 {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #6e402b;
+  transition: all 0.2s ease;
+}
+
+.btn1:active {
+  transform: scale(0.96);
+}
+
+.btn1:before,
+.btn1:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.btn1:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #6e402b 20%, transparent 30%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #6e402b 15%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.btn1:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #6e402b 15%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%),
+    radial-gradient(circle, #6e402b 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.button-56 {
+  align-items: center;
+  background-color: #6e402b;
+  border: 3px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #3d2012;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #6e402b;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
 }
