@@ -8,6 +8,7 @@ import PhotoGallery from '../../components/PhotoGallery';
 export default function Gallery() {
     const pageContent = (
         <div className="flex flex-col justify-center items-center slide-in-fwd-center">
+            <title>Gallery</title>
             <Header />
             <Navigation />
             <h1>Gallery</h1>
