@@ -25,7 +25,14 @@ const PhotoGallery = () => {
     useEffect(() => {
         if (galleryRef.current) {
             import('lightgallery').then((lg) => {
-                lg.default(galleryRef.current); // Initialize LightGallery on the gallery element
+                lg.default(galleryRef.current, {
+                    counter: false, // Disable the photo counter (current/total images)
+                    zoom: true,     // Enable zoom
+                    thumbnail: true, // Enable thumbnails
+                    showCaptions: false,   // Disable captions (image name)
+                    getCaptionFromTitle: false, // Ensure no captions are fetched from title attribute
+                    caption: false,         // Explicitly disable captions
+                });
             });
         }
     }, []);
