@@ -16,6 +16,7 @@ export default function About() {
             <Navigation />
             <h1>About</h1>
             <p>Hello. This is Hannah</p>
+            <iframe width="150" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/86910948&color=%23cdcdcb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
             <Footer />
         </div>
     );
