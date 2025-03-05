@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from 'next/image';
 import { useState } from 'react';
-
 
 const PhotoGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -14,58 +13,30 @@ const PhotoGallery = () => {
         setSelectedImage(null);
     };
 
+    // Define your images in an array
+    const imagePaths = [
+        '/gallery/photo1.jpeg',
+        '/gallery/photo2.jpeg',
+        '/gallery/photo3.jpeg',
+        '/gallery/photo4.jpeg',
+        '/gallery/photo5.jpeg',
+    ];
+
+    // Photo gallery content generated from the array
     const photoContent = (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="grid gap-4">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100}
-                    height={50}
-                    onClick={() => handleClick('/icons/Chiyu-Square.png')} // Set selected image on click
-                    className="cursor-pointer"
-                />
-            </div>
-            <div className="grid gap-4">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100}
-                    height={50}
-                    onClick={() => handleClick('/icons/Chiyu-Square.png')}
-                    className="cursor-pointer"
-                />
-            </div>
-            <div className="grid gap-4">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100}
-                    height={50}
-                    onClick={() => handleClick('/icons/Chiyu-Square.png')}
-                    className="cursor-pointer"
-                />
-            </div>
-            <div className="grid gap-4">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100}
-                    height={50}
-                    onClick={() => handleClick('/icons/Chiyu-Square.png')}
-                    className="cursor-pointer"
-                />
-            </div>
-            <div className="grid gap-4">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100}
-                    height={50}
-                    onClick={() => handleClick('/icons/Chiyu-Square.png')}
-                    className="cursor-pointer"
-                />
-            </div>
+            {imagePaths.map((image, index) => (
+                <div key={index} className="grid gap-4">
+                    <Image
+                        src={image}
+                        alt={`Image ${index + 1}`}
+                        width={100}
+                        height={50}
+                        onClick={() => handleClick(image)} // Set selected image on click
+                        className="cursor-pointer"
+                    />
+                </div>
+            ))}
         </div>
     );
 
@@ -85,9 +56,8 @@ const PhotoGallery = () => {
                 />
                 <button
                     onClick={handleClose}
-                    className="absolute top-2 right-2 text-white font-bold"
+                    className="absolute top-2 right-10 text-white font-bold text-2xl"
                 >
-                    Close
                 </button>
             </div>
         </div>

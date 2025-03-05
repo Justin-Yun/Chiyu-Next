@@ -1,18 +1,14 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import Image from 'next/image'
+import 'lightgallery/css/lightgallery.css';
+
+// Dynamically import LightGallery for client-side only
+const LightGallery = dynamic(() => import('lightgallery'), {
+    ssr: false, // Disable server-side rendering for this component
+});
 
 const PhotoGallery = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleClick = (image) => {
-        setSelectedImage(image);
-    };
-
-    const handleClose = () => {
-        setSelectedImage(null);
-    };
-
     // Define your images in an array
     const imagePaths = [
         '/gallery/photo1.jpeg',
@@ -22,56 +18,38 @@ const PhotoGallery = () => {
         '/gallery/photo5.jpeg',
     ];
 
-    // Photo gallery content generated from the array
-    const photoContent = (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {imagePaths.map((image, index) => (
-                <div key={index} className="grid gap-4">
-                    <Image
-                        src={image}
-                        alt={`Image ${index + 1}`}
-                        width={100}
-                        height={50}
-                        onClick={() => handleClick(image)} // Set selected image on click
-                        className="cursor-pointer"
-                    />
-                </div>
-            ))}
-        </div>
-    );
+    // Ref to attach to LightGallery
+    const galleryRef = useRef(null);
 
-    // Modal content
-    const modalContent = selectedImage && (
-        <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-            onClick={handleClose}
-        >
-            <div className="relative">
-                <Image
-                    src={selectedImage}
-                    alt="Enlarged Image"
-                    width={500} // Adjust the size as needed
-                    height={250} // Adjust the height as needed
-                    className="max-w-full max-h-full"
-                />
-                <button
-                    onClick={handleClose}
-                    className="absolute top-2 right-10 text-white font-bold text-2xl"
-                >
-                </button>
+    // Initialize LightGallery on component mount
+    useEffect(() => {
+        if (galleryRef.current) {
+            import('lightgallery').then((lg) => {
+                lg.default(galleryRef.current); // Initialize LightGallery on the gallery element
+            });
+        }
+    }, []);
+
+    // Define gallery content as a variable
+    const galleryContent = (
+        <div>
+            <div ref={galleryRef} className="gallery">
+                {imagePaths.map((imagePath, index) => (
+                    <a href={imagePath} key={index} data-src={imagePath}>
+                        <Image
+                            src={imagePath}
+                            alt={`Gallery Image ${index + 1}`}
+                            width={300}
+                            height={200}
+                            className="gallery-image"
+                        />
+                    </a>
+                ))}
             </div>
         </div>
     );
 
-    // Combine the photo content and modal content into one variable to return
-    const galleryContent = (
-        <div>
-            {photoContent}
-            {modalContent}
-        </div>
-    );
-
-    return galleryContent; // Returning the gallery content variable
+    return galleryContent; // Return the gallery content variable
 };
 
 export default PhotoGallery;
