@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Navigation from '../components/Navigation';
 import Image from 'next/image'
 
 const Header = () => {
