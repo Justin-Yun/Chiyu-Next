@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import Image from 'next/image'
 
 const Header = () => {
-    return (
+    const headerContent = (
         <div>
             <Link href="/">
                 <Image
@@ -11,10 +11,13 @@ const Header = () => {
                     alt="Home Page"
                     width={100} // Smaller width
                     height={50} // Adjust height to maintain aspect ratio
+                    className='flicker-in-glow'
                 />
             </Link>
         </div>
-    );
+    )
+
+    return headerContent;
 };
 
 export default Header;

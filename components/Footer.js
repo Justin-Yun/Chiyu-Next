@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import Image from 'next/image'
 
 const Footer = () => {
-    return (
+    const footerContent = (
         <div>
             <div className="flex space-x-4 items-center mt-12">
                 <p>&copy; Hannah Lee</p>
@@ -33,7 +33,9 @@ const Footer = () => {
                 </Link>
             </div>
         </div>
-    );
+    )
+
+    return footerContent;
 };
 
 export default Footer;

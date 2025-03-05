@@ -10,7 +10,7 @@ export default function About() {
 
 
     const pageContent = (
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center slide-in-fwd-center">
             <Header />
             <Navigation />
             <h1>About</h1>
