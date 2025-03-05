@@ -7,9 +7,11 @@ import Navigation from '../../components/Navigation';
 
 export default function Home() {
   const pageContent = (
-    <div className="flex flex-col justify-center items-center h-screen">
+    // <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col justify-center items-center">
       <Header />
       <Navigation />
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/XKd-qdNNko4?si=tN9oWrcq0iItz1Zl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <Footer />
     </div>
   );

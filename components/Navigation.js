@@ -5,7 +5,7 @@ const Navigation = () => {
   const buttonClass = "cta";
 
   return (
-    <div className="flex justify-center space-x-4 mt-12">
+    <div className="flex justify-center space-x-4 mt-6 mb-10">
       <Link href="/about" className={buttonClass}>
         <span>About</span>
       </Link>

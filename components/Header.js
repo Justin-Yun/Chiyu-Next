@@ -9,8 +9,8 @@ const Header = () => {
                 <Image
                     src="/icons/Chiyu-Square.png"
                     alt="Home Page"
-                    width={300} // Smaller width
-                    height={150} // Adjust height to maintain aspect ratio
+                    width={100} // Smaller width
+                    height={50} // Adjust height to maintain aspect ratio
                 />
             </Link>
         </div>
