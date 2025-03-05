@@ -473,3 +473,11 @@ body {
     opacity: 1;
   }
 }
+
+
+/* Photo Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}

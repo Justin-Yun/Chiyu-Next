@@ -48,7 +48,7 @@ const PhotoGallery = () => {
                             alt={""}
                             width={300}
                             height={200}
-                            className="gallery-image"
+                            // className="gallery-image"
                         />
                     </a>
                 ))}
