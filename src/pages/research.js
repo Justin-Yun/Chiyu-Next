@@ -13,7 +13,7 @@ export default function Research() {
             <Header />
             <Navigation />
             <h1>Research</h1>
-
+            <p>Put research stuff here</p>
             <Footer />
         </div>
     );

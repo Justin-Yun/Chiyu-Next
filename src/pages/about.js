@@ -14,7 +14,7 @@ export default function About() {
             <Header />
             <Navigation />
             <h1>About</h1>
-
+            <p>Hello. This is Hannah</p>
             <Footer />
         </div>
     );
