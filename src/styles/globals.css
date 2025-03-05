@@ -3,6 +3,7 @@
 :root {
   background-color: black;
   font-family: "Courier New", monospace;
+  color: white;
 }
 
 /* @theme inline {
@@ -76,3 +77,6 @@ body {
 .cta:active {
   transform: scale(0.95);
 }
+
+
+/* Transitions CSS */
