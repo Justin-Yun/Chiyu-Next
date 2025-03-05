@@ -4,8 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
 
-
-export default function About() {
+export default function Research() {
 
 
 
@@ -13,7 +12,7 @@ export default function About() {
         <div className="flex flex-col justify-center items-center h-screen">
             <Header />
             <Navigation />
-            <h1>About</h1>
+            <h1>Research</h1>
 
             <Footer />
         </div>

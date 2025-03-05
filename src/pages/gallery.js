@@ -1,17 +1,21 @@
 import Link from 'next/link';
-import Button from '../../components/Button';
+import Image from 'next/image';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Navigation from '../../components/Navigation';
 
-
 export default function Gallery() {
-    
-    
-    
+
+
+
     const pageContent = (
-        <div className="flex flex-col justify-center items-center h-screen bg-black">
-        <h1 className="text-4xl font-semibold mb-8 text-white">Gallery</h1>
-        <Navigation />
-      </div>
+        <div className="flex flex-col justify-center items-center h-screen">
+            <Header />
+            <Navigation />
+            <h1>Gallery</h1>
+
+            <Footer />
+        </div>
     );
 
     // Return the variable containing the JSX
