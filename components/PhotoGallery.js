@@ -45,7 +45,7 @@ const PhotoGallery = () => {
                     <a href={imagePath} key={index} data-src={imagePath}>
                         <Image
                             src={imagePath}
-                            alt={`Gallery Image ${index + 1}`}
+                            alt={""}
                             width={300}
                             height={200}
                             className="gallery-image"
