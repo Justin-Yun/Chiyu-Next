@@ -94,8 +94,8 @@ body {
 
 /* Transitions CSS */
 .focus-in {
-  -webkit-animation: focus-in 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: focus-in 0.7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  -webkit-animation: focus-in 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: focus-in 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
 @-webkit-keyframes focus-in {
@@ -444,8 +444,8 @@ body {
 }
 
 .slide-in-fwd-center {
-  -webkit-animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-fwd-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @-webkit-keyframes slide-in-fwd-center {
