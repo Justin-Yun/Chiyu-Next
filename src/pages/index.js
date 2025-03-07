@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-screen">
+      <div className="relative z-10 flex flex-col justify-start items-center h-screen pt-5">
         <title>CHIYU</title>
         <Header />
         <Navigation />
