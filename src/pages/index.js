@@ -10,7 +10,7 @@ export default function Home() {
     <div className="relative w-full h-screen overflow-hidden">
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
-        <Particles particleCount={300} speed={0.2} />
+        <Particles particleCount={200} speed={0.15} />
       </div>
 
       {/* Foreground Content */}
