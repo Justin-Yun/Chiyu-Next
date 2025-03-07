@@ -10,7 +10,16 @@ export default function Home() {
     <div className="relative w-full h-screen overflow-hidden">
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
-        <Particles particleCount={200} speed={0.15} />
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.125}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
       </div>
 
       {/* Foreground Content */}
