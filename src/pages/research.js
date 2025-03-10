@@ -5,6 +5,13 @@ import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import Particles from "@/components/Particles";
 
+const researchDetails = (
+  <>
+    <p>Fill Research Details Here</p>
+    <p>....</p>
+  </>
+);
+
 export default function Research() {
   const pageContent = (
     <div className="relative w-full h-screen overflow-hidden slide-in-fwd-center">
@@ -26,7 +33,7 @@ export default function Research() {
         <Header />
         <Navigation />
         <h1>Research</h1>
-        <p>Put research stuff here</p>
+        {researchDetails}
         <Footer />
       </div>
     </div>

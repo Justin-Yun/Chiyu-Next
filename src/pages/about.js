@@ -5,6 +5,21 @@ import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import Particles from "@/components/Particles";
 
+const aboutDetails = (
+  <>
+    <p>Hello! This is Hannah</p>
+    <p>Fill Details Here:</p>
+    <iframe
+      width="150"
+      height="150"
+      scrolling="no"
+      frameborder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/86910948&color=%23cdcdcb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+    ></iframe>
+  </>
+);
+
 export default function About() {
   const pageContent = (
     <div className="relative w-full h-screen overflow-hidden slide-in-fwd-center">
@@ -26,15 +41,7 @@ export default function About() {
         <Header />
         <Navigation />
         <h1>About</h1>
-        <p>Hello. This is Hannah</p>
-        <iframe
-          width="150"
-          height="150"
-          scrolling="no"
-          frameborder="no"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/86910948&color=%23cdcdcb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-        ></iframe>
+        {aboutDetails}
         <Footer />
       </div>
     </div>
