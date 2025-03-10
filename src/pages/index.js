@@ -7,7 +7,7 @@ import Particles from '@/components/Particles';
 
 export default function Home() {
   const pageContent = (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden slide-in-fwd-center">
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
         <Particles
@@ -28,7 +28,7 @@ export default function Home() {
         <Header />
         <Navigation />
         <iframe
-          width="375"
+          width="360"
           height="300"
           src="https://www.youtube.com/embed/XKd-qdNNko4?si=tN9oWrcq0iItz1Zl"
           title="YouTube video player"
