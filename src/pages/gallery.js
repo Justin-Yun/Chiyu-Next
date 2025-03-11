@@ -8,7 +8,7 @@ import Particles from "@/components/Particles";
 
 export default function Gallery() {
   const pageContent = (
-    <div className="relative w-full h-screen overflow-hidden slide-in-fwd-center">
+    <div className="relative w-full min-h-screen overflow-hidden slide-in-fwd-center">
       <div className="absolute inset-0 z-0">
         <Particles
           particleColors={["#faedcd", "#faedcd"]}
@@ -21,7 +21,7 @@ export default function Gallery() {
           disableRotation={false}
         />
       </div>
-      <div className="relative z-10 flex flex-col justify-start items-center h-screen pt-5">
+      <div className="relative z-10 flex flex-col justify-start items-center min-h-screen pt-5">
         <title>Gallery</title>
         <Header />
         <Navigation />
