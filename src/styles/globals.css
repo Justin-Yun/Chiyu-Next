@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  background-color: black;
+  background-color: #282828;
   /* font-family: "Courier New", monospace; */
   font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
   letter-spacing: 0.055em;
