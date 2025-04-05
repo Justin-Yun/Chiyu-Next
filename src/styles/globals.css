@@ -3,7 +3,7 @@
 :root {
   background-color: #282828;
   /* font-family: "Courier New", monospace; */
-  font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+  font-family: "Lora", serif;
   letter-spacing: 0.055em;
   color: white;
 }
