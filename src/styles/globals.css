@@ -26,7 +26,7 @@ h2 {
 }
 
 p {
-  font-family: "Hind Madurai", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -34,6 +34,8 @@ body {
   color: var(--foreground); */
 }
 
+footer {
+}
 /* CSS */
 /* From Uiverse.io by alexmaracinaru */
 .cta {

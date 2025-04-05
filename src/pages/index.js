@@ -33,6 +33,7 @@ export default function Home() {
           // height={300}
           width={400}
           height={350}
+          alt="Background Image"
         />{" "}
         <Footer />
       </div>

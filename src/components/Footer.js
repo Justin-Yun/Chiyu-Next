@@ -5,7 +5,7 @@ const Footer = () => {
     const footerContent = (
         <div>
             <div className="flex space-x-4 items-center mt-12">
-                <p>&copy; Hannah Lee</p>
+                <footer>&copy; Hannah Lee</footer>
                 <Link href="https://www.instagram.com/hli.xi/" target="_blank" rel="noopener noreferrer">
                     <Image
                         src="/icons/instagram.svg"
