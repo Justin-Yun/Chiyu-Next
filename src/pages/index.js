@@ -29,9 +29,11 @@ export default function Home() {
         <Navigation />
         <Image
           src="/icons/Land.png"
-          width={360}
-          height={300}
-        />{" "}
+          // width={360}
+          // height={300}
+          width={400}
+          height={350}
+        />
         <Footer />
       </div>
     </div>
