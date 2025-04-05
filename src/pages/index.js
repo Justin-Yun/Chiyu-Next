@@ -9,7 +9,6 @@ export default function Home() {
   const pageContent = (
     <div className="relative w-full h-screen overflow-hidden slide-in-fwd-center">
       {/* Particles Background */}
-      <link rel="icon" type="image/x-icon" href="/icons/jellyfish.png" />
       <div className="absolute inset-0 z-0">
         <Particles
           particleColors={["#faedcd", "#faedcd"]}
