@@ -28,7 +28,7 @@ export default function Home() {
         <Header />
         <Navigation />
         <Image
-          src="/icons/Website_Land.png"
+          src="/icons/Land.png"
           width={360}
           height={300}
         />{" "}
