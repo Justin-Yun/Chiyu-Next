@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Header = () => {
     const headerContent = (
         <div>
-            <link rel="icon" type="image/x-icon" href="/icons/portfolio.png" />
+            <link rel="icon" type="image/x-icon" href="/icons/jellyfish1.png" />
             <Link href="/">
                 <Image
                     src="/icons/Chiyu-Square.png"

@@ -8,7 +8,7 @@ const Footer = () => {
                 <footer>&copy; Hannah Lee</footer>
                 <Link href="https://www.instagram.com/hli.xi/" target="_blank" rel="noopener noreferrer">
                     <Image
-                        src="/icons/instagram.svg"
+                        src="/icons/instagram.png"
                         alt="Instagram"
                         width={20}
                         height={20}
@@ -16,7 +16,7 @@ const Footer = () => {
                 </Link>
                 <Link href="https://www.linkedin.com/in/hlixi/" target="_blank" rel="noopener noreferrer">
                     <Image
-                        src="/icons/linkedin.svg"
+                        src="/icons/linkedin.png"
                         alt="LinkedIn"
                         width={20}
                         height={20}
@@ -24,7 +24,7 @@ const Footer = () => {
                 </Link>
                 <Link href="https://www.hlixi.com/" target="_blank" rel="noopener noreferrer">
                     <Image
-                        src="/icons/portfolio.png"
+                        src="/icons/jellyfish.png"
                         alt="Portfolio"
                         width={20}
                         height={20}
