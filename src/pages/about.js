@@ -71,9 +71,7 @@ export default function About() {
         <Header />
         <Navigation />
         {/* <h1>About Me</h1> */}
-        <h1 className="text-4xl font-bold text-white-900 dark:text-white mb-6">
-          About Me
-        </h1>
+        <h1 className="text-4xl font-bold text-white-900 dark:text-white mb-6">About Me</h1>
         {aboutDetails}
         <Footer />
       </div>
