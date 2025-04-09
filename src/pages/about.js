@@ -36,7 +36,7 @@ const aboutDetails = (
     </p>
     <p className="text-md text-white-600 dark:text-gray-400">
       She is currently working on her thesis project, <strong>Chiyu</strong>,
-      which means "healing" in Korean — a video game exploring the emotional
+      which means &quot;healing&quot; in Korean — a video game exploring the emotional
       journey of a breakup. Through interactive storytelling, the game
       symbolizes the challenges and growth that come with healing.
     </p>
