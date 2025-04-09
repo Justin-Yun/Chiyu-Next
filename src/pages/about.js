@@ -17,7 +17,7 @@ const aboutDetails = (
       width={360}
       height={300}
       className="rounded-2xl shadow-lg"
-      alt="Profile Pic"
+      alt="Profile"
     />
     <p className="text-md text-white-600 dark:text-gray-400">
       Hannah is driven by a passion to use design as a pathway to achieving her
