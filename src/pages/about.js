@@ -13,7 +13,7 @@ const aboutDetails = (
       compelling digital experiences.
     </p>
     <Image
-      src="/images/profile.jpg"
+      src="/images/profilePic.jpg"
       width={360}
       height={300}
       className="rounded-2xl shadow-lg"
