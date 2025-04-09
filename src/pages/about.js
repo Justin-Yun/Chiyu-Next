@@ -9,7 +9,7 @@ const aboutDetails = (
   <section className="flex flex-col items-center text-center max-w-2xl px-4 mt-6 space-y-6">
     <p className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
       Hello! I’m <span className="font-bold text-primary">Hannah</span> — a
-      passionate web developer who loves crafting intuitive and visually
+      passionate digital design artist who loves crafting intuitive and visually
       compelling digital experiences.
     </p>
     <Image
@@ -19,12 +19,6 @@ const aboutDetails = (
       className="rounded-2xl shadow-lg"
       alt="Profile Pic"
     />
-
-    <p className="text-md text-white-600 dark:text-gray-400">
-      I'm deeply interested in frontend technologies, animation, and creating
-      smooth, user-friendly interfaces. I also enjoy exploring the intersection
-      of design and code.
-    </p>
     <p className="text-md text-white-600 dark:text-gray-400">
       Hannah is driven by a passion to use design as a pathway to achieving her
       dreams. For her, design is more than a profession — it’s a means of
