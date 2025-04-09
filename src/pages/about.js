@@ -20,19 +20,27 @@ const aboutDetails = (
       alt="Profile"
     />
     <p className="text-md text-white-600 dark:text-gray-400">
-      Hannah is driven by a passion to use design as a pathway to achieving her
-      dreams. For her, design is more than a profession — it’s a means of
-      self-expression and a tool for bringing ideas to life in ways that
-      inspire, inform, and connect with others.
+      Hannah Lee is a Digital Design student at the University of Colorado
+      Denver, currently pursuing her Bachelor’s degree with a focus on
+      illustration and concept art. She has developed an interest in game art
+      design and is now working toward a career in the gaming industry.
     </p>
     <p className="text-md text-white-600 dark:text-gray-400">
-      Currently, she is refining her skills at the University of Colorado
-      Denver, immersing herself in a range of design disciplines to become a
-      true &quot;jack of all trades&quot;. She believes versatility is essential in
-      today’s fast-evolving creative landscape. By mastering concept
-      development, visual storytelling, user-centered design, and brand
-      aesthetics, she is building a strong foundation to adapt to any project
-      and bring creative visions to life.
+      In addition to her academic work, she is a licensed esthetician and laser
+      technician, blending two different yet complementary fields to offer a
+      unique perspective.
+    </p>
+    <p className="text-md text-white-600 dark:text-gray-400">
+      Outside of school and work, Hannah enjoys exploring local food spots and
+      capturing artistic photos of her meals. Her hobbies include journaling,
+      drawing, gaming, and engaging in any activity that allows her to work with
+      her hands.
+    </p>
+    <p className="text-md text-white-600 dark:text-gray-400">
+      Recently, her creative focus has centered on character concept art, a
+      passion that grew through the development of her thesis project—a
+      narrative-driven video game exploring the emotional healing process
+      following a breakup.
     </p>
   </section>
 );
