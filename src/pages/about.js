@@ -28,7 +28,7 @@ const aboutDetails = (
     <p className="text-md text-white-600 dark:text-gray-400">
       Currently, she is refining her skills at the University of Colorado
       Denver, immersing herself in a range of design disciplines to become a
-      true "jack of all trades." She believes versatility is essential in
+      true &quot;jack of all trades&quot;. She believes versatility is essential in
       today’s fast-evolving creative landscape. By mastering concept
       development, visual storytelling, user-centered design, and brand
       aesthetics, she is building a strong foundation to adapt to any project
@@ -70,7 +70,6 @@ export default function About() {
         <title>About</title>
         <Header />
         <Navigation />
-        {/* <h1>About Me</h1> */}
         <h1 className="text-4xl font-bold text-white-900 dark:text-white mb-6">About Me</h1>
         {aboutDetails}
         <Footer />
