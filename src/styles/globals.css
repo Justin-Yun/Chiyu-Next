@@ -640,3 +640,16 @@ footer {
     padding: 0 40px;
   }
 }
+
+/* Light theme for when user clicks on image for LightGallery */
+.lg-backdrop {
+  background-color: #fff !important; /* Light background */
+}
+
+.lg-outer .lg-item {
+  background-color: #fff !important;
+}
+
+.lg-sub-html {
+  color: #000 !important; /* Optional: Make captions visible on light background */
+}
