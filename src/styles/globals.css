@@ -643,11 +643,11 @@ footer {
 
 /* Light theme for when user clicks on image for LightGallery */
 .lg-backdrop {
-  background-color: #fff !important; /* Light background */
+  background-color: #f5f5dc !important; /* Light background */
 }
 
 .lg-outer .lg-item {
-  background-color: #fff !important;
+  background-color: #f5f5dc !important;
 }
 
 .lg-sub-html {
