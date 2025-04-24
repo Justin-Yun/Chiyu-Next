@@ -7,7 +7,7 @@ import Particles from "@/components/Particles";
 
 const researchDetails = (
   <section className="flex flex-col items-center text-center max-w-2xl px-4 mt-6 space-y-6">
-    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
+    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       Thesis Question
     </h2>
     <p className="text-sm text-white-600 dark:text-gray-400">
@@ -15,7 +15,7 @@ const researchDetails = (
         "How might I design a video game experience that helps individuals process the emotions of a breakup, gain closure, and foster emotional healing through engaging storytelling, gameplay mechanics, and interactive design?"
       }
     </p>
-    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
+    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       Problem Statement
     </h2>
     <p className="text-sm text-white-600 dark:text-gray-400">
@@ -24,11 +24,11 @@ const researchDetails = (
       }
     </p>
 
-    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
+    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       Therapy & Psychology Research
     </h2>
 
-    <p className="text-md text-white-600 dark:text-gray-400 font-bold">
+    <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Insights from Hope Carwile
     </p>
 
@@ -66,7 +66,7 @@ const researchDetails = (
         "Carwile also highlighted how past trauma significantly influences how individuals cope with breakups. Childhood experiences, including parental relationships, often shape unconscious coping mechanisms (Bowlby, 1980). Trauma from previous relationships can also resurface, affecting emotional regulation and healing."
       }
     </p>
-    <p className="text-md text-white-600 dark:text-gray-400 font-bold">
+    <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Color Symbolism in the Stages of Grief
     </p>
 
@@ -107,11 +107,11 @@ const researchDetails = (
       }
     </p>
 
-    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
+    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       {"Game Design & Background"}
     </h2>
 
-    <p className="text-md text-white-600 dark:text-gray-400 font-bold">
+    <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Research on 2D Game Aesthetics
     </p>
 
@@ -135,13 +135,13 @@ const researchDetails = (
         {"– 2D/3D style, with a more lifelike and detailed visual approach"}
       </li>
     </ul>
-    <p className="text-md text-white-600 dark:text-gray-400 font-bold">
+    <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Naming & Cultural Influence
     </p>
     <p className="text-sm text-white-600 dark:text-gray-400">
       To align the game with its healing theme, I explored translations of the
       word &quot;healing&quot; in different languages. Ultimately, I chose
-      &quotChiyu&quot; <strong>{"(치유)"}</strong>, the Korean word for healing, as a representation
+      &quot;Chiyu&quot; <strong>{"(치유)"}</strong>, the Korean word for healing, as a representation
       of my cultural identity. Incorporating Korean traditional elements remains
       a challenge due to the limited representation of Korean stylized games in
       the U.S. gaming industry {"(Chung & Fung, 2013)"}. However, I am actively
@@ -154,7 +154,7 @@ const researchDetails = (
       }
     </p>
 
-    <p className="text-md text-white-600 dark:text-gray-400 font-bold">
+    <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Theme & Character Design
     </p>
 
@@ -231,8 +231,10 @@ const researchDetails = (
         "This structured approach will ensure that my process book is both a valuable design archive and a visually captivating narrative that complements the game's themes."
       }
     </p>
-
-    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
+    <br />
+    <br />
+    
+    <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       References
     </h2>
 
