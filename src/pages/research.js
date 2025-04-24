@@ -24,6 +24,7 @@ const researchDetails = (
       }
     </p>
 
+    <div></div>
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       Therapy & Psychology Research
     </h2>
@@ -106,6 +107,7 @@ const researchDetails = (
         "For simplicity in game design, I am currently focusing on the five core stages of grief. However, in the future, I would consider incorporating a deeper character backstory to explore how personal history shapes an individual's response to loss."
       }
     </p>
+    <div><br></br></div>
 
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       {"Game Design & Background"}
