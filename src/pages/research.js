@@ -223,7 +223,6 @@ const researchDetails = (
         {
           "Annotated design choices, explaining how they tie into Korean aesthetics and the five stages of grief."
         }
-        "
       </li>
     </ul>
 
