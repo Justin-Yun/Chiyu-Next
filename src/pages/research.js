@@ -69,6 +69,13 @@ const researchDetails = (
         "Carwile also highlighted how past trauma significantly influences how individuals cope with breakups. Childhood experiences, including parental relationships, often shape unconscious coping mechanisms (Bowlby, 1980). Trauma from previous relationships can also resurface, affecting emotional regulation and healing."
       }
     </p>
+    <Image
+      src="/research/poster.jpg"
+      width={350}
+      height={250}
+      className="rounded-2xl shadow-lg"
+      alt="Poster"
+    />
     <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Color Symbolism in the Stages of Grief
     </p>
@@ -109,6 +116,14 @@ const researchDetails = (
         "For simplicity in game design, I am currently focusing on the five core stages of grief. However, in the future, I would consider incorporating a deeper character backstory to explore how personal history shapes an individual's response to loss."
       }
     </p>
+    <Image
+      src="/research/storyboard.jpg"
+      width={350}
+      height={250}
+      className="rounded-2xl shadow-lg"
+      alt="Storyboard"
+    />
+
     <div>
       <br></br>
     </div>
@@ -141,6 +156,21 @@ const researchDetails = (
         {"– 2D/3D style, with a more lifelike and detailed visual approach"}
       </li>
     </ul>
+
+    <Image
+      src="/research/character.jpg"
+      width={350}
+      height={250}
+      className="rounded-2xl shadow-lg"
+      alt="Character"
+    />
+    <Image
+      src="/research/mainCharacter.jpg"
+      width={350}
+      height={250}
+      className="rounded-2xl shadow-lg"
+      alt="Main Character"
+    />
     <p className="text-md text-white-600 dark:text-gray-400 font-semibold">
       Naming & Cultural Influence
     </p>

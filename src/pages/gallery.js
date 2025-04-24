@@ -26,6 +26,7 @@ export default function Gallery() {
         <Header />
         <Navigation />
         <h1>Gallery</h1>
+        <div><br/></div>
         <PhotoGallery />
         <Footer />
       </div>
