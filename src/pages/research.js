@@ -11,21 +11,17 @@ const researchDetails = (
       Thesis Question
     </h2>
     <p className="text-sm text-white-600 dark:text-gray-400">
-      How might I design a video game experience that helps individuals process
-      the emotions of a breakup, gain closure, and foster emotional healing
-      through engaging storytelling, gameplay mechanics, and interactive design?
+      {
+        "How might I design a video game experience that helps individuals process the emotions of a breakup, gain closure, and foster emotional healing through engaging storytelling, gameplay mechanics, and interactive design?"
+      }
     </p>
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
       Problem Statement
     </h2>
     <p className="text-sm text-white-600 dark:text-gray-400">
-      Many video games prioritize action, competition, or fantasy elements,
-      often neglecting the emotional aspects of life. While some
-      narrative-driven games explore emotional themes, few directly address
-      breakups, grief, and emotional healing in an interactive and meaningful
-      way. This gap presents an opportunity to design a game that not only
-      entertains but also aids players in processing complex emotions through
-      immersive storytelling and gameplay.
+      {
+        "Many video games prioritize action, competition, or fantasy elements, often neglecting the emotional aspects of life. While some narrative-driven games explore emotional themes, few directly address breakups, grief, and emotional healing in an interactive and meaningful way. This gap presents an opportunity to design a game that not only entertains but also aids players in processing complex emotions through immersive storytelling and gameplay."
+      }
     </p>
 
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
@@ -37,82 +33,82 @@ const researchDetails = (
     </p>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      During my meetings with therapist Hope Carwile, we discussed the
-      psychological process individuals undergo during a breakup, which closely
-      aligns with the five stages of grief (Kübler-Ross & Kessler, 2005). These
-      stages are:
+      {
+        "During my meetings with therapist Hope Carwile, we discussed the psychological process individuals undergo during a breakup, which closely aligns with the five stages of grief (Kübler-Ross & Kessler, 2005). These stages are:"
+      }
     </p>
 
     <ol className="list-decimal list-inside text-white-600 dark:text-gray-400 text-sm">
       <li>
-        <strong>Denial</strong> – A form of self-protection and isolation from
-        reality.
+        <strong>Denial</strong>{" "}
+        {"– A form of self-protection and isolation from reality."}
       </li>
       <li>
-        <strong>Anger</strong> – Expressing frustration and protest against the
-        loss.
+        <strong>Anger</strong>{" "}
+        {"– Expressing frustration and protest against the loss."}
       </li>
       <li>
-        <strong>Bargaining</strong> – Attempting to regain control by making
-        hypothetical deals.
+        <strong>Bargaining</strong>{" "}
+        {"– Attempting to regain control by making hypothetical deals."}
       </li>
       <li>
-        <strong>Depression</strong> – Fully experiencing sadness and
-        surrendering to emotions.
+        <strong>Depression</strong>{" "}
+        {"– Fully experiencing sadness and surrendering to emotions."}
       </li>
       <li>
-        <strong>Acceptance</strong> – Acknowledging the facts and embracing
-        wisdom.
+        <strong>Acceptance</strong>{" "}
+        {"– Acknowledging the facts and embracing wisdom."}
       </li>
     </ol>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      Carwile also highlighted how past trauma significantly influences how
-      individuals cope with breakups. Childhood experiences, including parental
-      relationships, often shape unconscious coping mechanisms (Bowlby, 1980).
-      Trauma from previous relationships can also resurface, affecting emotional
-      regulation and healing.
+      {
+        "Carwile also highlighted how past trauma significantly influences how individuals cope with breakups. Childhood experiences, including parental relationships, often shape unconscious coping mechanisms (Bowlby, 1980). Trauma from previous relationships can also resurface, affecting emotional regulation and healing."
+      }
     </p>
     <p className="text-md text-white-600 dark:text-gray-400 font-bold">
       Color Symbolism in the Stages of Grief
     </p>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      Carwile and I also explored how different colors can symbolize each stage
-      of grief, which may be incorporated into the game's aesthetic and
-      emotional journey:
+      {
+        "Carwile and I also explored how different colors can symbolize each stage of grief, which may be incorporated into the game's aesthetic and emotional journey:"
+      }
     </p>
 
     <ul className="list-decimal list-inside text-white-600 dark:text-gray-400 text-sm">
       <li>
-        <strong>Denial:</strong> Grey, white (uncertainty, void)
+        <strong>{"Denial:"}</strong> {"Grey, white (uncertainty, void)"}
       </li>
       <li>
-        <strong>Anger:</strong> Red, yellow (release through laughter), orange,
-        fuchsia + white
+        <strong>{"Anger:"}</strong>{" "}
+        {"Red, yellow (release through laughter), orange, fuchsia + white"}
       </li>
       <li>
-        <strong>Bargaining:</strong> Green (exchange, negotiation)
+        <strong>{"Bargaining:"}</strong> {"Green (exchange, negotiation)"}
       </li>
       <li>
-        <strong>Depression:</strong> Black, dark grey, dark brown (earthy, hands
-        in dirt), dark blue (depth)
+        <strong>{"Depression:"}</strong>{" "}
+        {
+          "Black, dark grey, dark brown (earthy, hands in dirt), dark blue (depth)"
+        }
       </li>
       <li>
-        <strong>Acceptance:</strong> White, yellow (transformational, bright
-        sun, energy-giving yet anxiety-inducing)
+        <strong>{"Acceptance:"}</strong>{" "}
+        {
+          "White, yellow (transformational, bright sun, energy-giving yet anxiety-inducing)"
+        }
       </li>
     </ul>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      For simplicity in game design, I am currently focusing on the five core
-      stages of grief. However, in the future, I would consider incorporating a
-      deeper character backstory to explore how personal history shapes an
-      individual's response to loss.
+      {
+        "For simplicity in game design, I am currently focusing on the five core stages of grief. However, in the future, I would consider incorporating a deeper character backstory to explore how personal history shapes an individual's response to loss."
+      }
     </p>
 
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
-      Game Design & Background
+      {"Game Design & Background"}
     </h2>
 
     <p className="text-md text-white-600 dark:text-gray-400 font-bold">
@@ -120,25 +116,23 @@ const researchDetails = (
     </p>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      Charles Valesechi helped me develop this portion of the game by
-      emphasizing the importance of clearly distinguishing the two visual
-      styles, so the audience can easily recognize they’re in different worlds.
-      He also guided me in simplifying my character designs, especially for a 2D
-      game, by encouraging me to consider both the artistic and coding aspects
-      to ensure the game remains realistic and achievable.
+      {
+        "Charles Valesechi helped me develop this portion of the game by emphasizing the importance of clearly distinguishing the two visual styles, so the audience can easily recognize they’re in different worlds. He also guided me in simplifying my character designs, especially for a 2D game, by encouraging me to consider both the artistic and coding aspects to ensure the game remains realistic and achievable."
+      }
       <br />
-      With Charles Valesechi advice and the extensive research on 2D games, I
-      created two different mood boards to distinguish between:
+      {
+        "With Charles Valesechi advice and the extensive research on 2D games, I created two different mood boards to distinguish between:"
+      }
     </p>
 
     <ul className="list-disc list-inside text-white-600 dark:text-gray-400 text-sm">
       <li>
-        <strong>The gameplay world</strong> - 2D style, with a stylized
-        cartoon-inspired aesthetic
+        <strong>The gameplay world</strong>{" "}
+        {"- 2D style, with a stylized cartoon-inspired aesthetic"}
       </li>
       <li>
-        <strong>The storyline world</strong> – 2D/3D style, with a more lifelike
-        and detailed visual approach
+        <strong>The storyline world</strong>{" "}
+        {"– 2D/3D style, with a more lifelike and detailed visual approach"}
       </li>
     </ul>
     <p className="text-md text-white-600 dark:text-gray-400 font-bold">
@@ -146,20 +140,18 @@ const researchDetails = (
     </p>
     <p className="text-sm text-white-600 dark:text-gray-400">
       To align the game with its healing theme, I explored translations of the
-      word "healing" in different languages. Ultimately, I chose "Chiyu" (치유),
-      the Korean word for healing, as a representation of my cultural identity.
-      Incorporating Korean traditional elements remains a challenge due to the
-      limited representation of Korean stylized games in the U.S. gaming
-      industry (Chung & Fung, 2013). However, I am actively researching ways to
-      blend Korean architecture, mythology, and aesthetics into the game. <br />
-      <br />
-      One of my key references for integrating Korean architecture is the Seoul
-      Hanok Portal, which provides extensive information about the structure and
-      design of Hanok (traditional Korean houses). The Hanok style features
-      natural materials, curved roofs, and open courtyards, which I aim to
-      incorporate into my game's environments (Seoul Metropolitan Government,
-      n.d.). This research helps ensure that the game remains authentic while
-      presenting a visually rich and immersive world.
+      word &quot;healing&quot; in different languages. Ultimately, I chose
+      &quotChiyu&quot; <strong>{"(치유)"}</strong>, the Korean word for healing, as a representation
+      of my cultural identity. Incorporating Korean traditional elements remains
+      a challenge due to the limited representation of Korean stylized games in
+      the U.S. gaming industry {"(Chung & Fung, 2013)"}. However, I am actively
+      researching ways to blend Korean architecture, mythology, and aesthetics
+      into the game.
+    </p>
+    <p className="text-sm text-white-600 dark:text-gray-400">
+      {
+        "One of my key references for integrating Korean architecture is the Seoul Hanok Portal, which provides extensive information about the structure and design of Hanok (traditional Korean houses). The Hanok style features natural materials, curved roofs, and open courtyards, which I aim to incorporate into my game's environments (Seoul Metropolitan Government, n.d.). This research helps ensure that the game remains authentic while presenting a visually rich and immersive world."
+      }
     </p>
 
     <p className="text-md text-white-600 dark:text-gray-400 font-bold">
@@ -168,7 +160,7 @@ const researchDetails = (
 
     <p className="text-sm text-white-600 dark:text-gray-400">
       Inspired by <em>Hollow Knight</em>, which utilizes its characters based on
-      skulls and insects, I explored alternative themes to unify my game’s
+      skulls and insects, I explored alternative themes to unify my {"game’s"}
       artistic direction. I ultimately gravitated toward the ocean due to its
       dual nature—both soothing and chaotic. This theme allows for dynamic enemy
       and boss designs based on different depths of the ocean, reflecting
@@ -182,50 +174,63 @@ const researchDetails = (
       inspiration from <em>The Art and Making of Arcane</em> (2022). This book
       details the artistic journey behind the hit animated series{" "}
       <em>Arcane</em>, offering deep insights into world-building, character
-      design, and storytelling. The visually rich layouts and behind-the-scenes
+      design, and storytelling. The visually rich layouts and{" "}
+      {"behind-the-scenes"}
       content provide a structured and aesthetically compelling approach that I
       aim to replicate in my process book for <em>Chiyu</em>.
-      <br />
-      <br /> <br />
-      <em>The Art and Making of Arcane</em> excels in:
+      <br /> <br /> <br />
+      <em>The Art and Making of Arcane</em> {"excels in:"}
+    </p>
+
+    <ul className="list-disc list-inside text-white-600 dark:text-gray-400 text-sm">
+      {" "}
+      <li>
+        {" "}
+        {
+          "Presenting concept art and development sketches in an organized manner."
+        }{" "}
+      </li>{" "}
+      <li>
+        {" "}
+        {
+          "Structuring the creative workflow into phases (early sketches, color studies, and final renders)."
+        }{" "}
+      </li>{" "}
+      <li>
+        {" "}
+        {
+          "Offering insightful commentary from artists and designers on stylistic choices."
+        }{" "}
+      </li>{" "}
+    </ul>
+
+    <p className="text-sm text-white-600 dark:text-gray-400">
+      {
+        "By adopting a similar format, my process book will not only document the visual evolution of Chiyu but also showcase my thought process in a clear, visually engaging way. I plan to integrate:"
+      }
     </p>
 
     <ul className="list-disc list-inside text-white-600 dark:text-gray-400 text-sm">
       <li>
-        Presenting concept art and development sketches in an organized manner.
+        {"Layered sketches showing character and environmental progression."}
       </li>
       <li>
-        Structuring the creative workflow into phases (early sketches, color
-        studies, and final renders).
+        {
+          "Mood boards and color palettes that define the emotional tone of different stages of the game."
+        }
       </li>
       <li>
-        Offering insightful commentary from artists and designers on stylistic
-        choices.
+        {
+          "Annotated design choices, explaining how they tie into Korean aesthetics and the five stages of grief."
+        }
+        "
       </li>
     </ul>
 
     <p className="text-sm text-white-600 dark:text-gray-400">
-      By adopting a similar format, my process book will not only document the
-      visual evolution of Chiyu but also showcase my thought process in a clear,
-      visually engaging way. I plan to integrate:
-    </p>
-
-    <ul className="list-disc list-inside text-white-600 dark:text-gray-400 text-sm">
-      <li>Layered sketches showing character and environmental progression.</li>
-      <li>
-        Mood boards and color palettes that define the emotional tone of
-        different stages of the game.
-      </li>
-      <li>
-        Annotated design choices, explaining how they tie into Korean aesthetics
-        and the five stages of grief.
-      </li>
-    </ul>
-
-    <p className="text-sm text-white-600 dark:text-gray-400">
-      This structured approach will ensure that my process book is both a
-      valuable design archive and a visually captivating narrative that
-      complements the game's themes.
+      {
+        "This structured approach will ensure that my process book is both a valuable design archive and a visually captivating narrative that complements the game's themes."
+      }
     </p>
 
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200">
@@ -238,11 +243,11 @@ const researchDetails = (
         (Attachment and Loss Vol. 3). Basic Books.
       </p>
       <p>
-        <sup>2</sup> Chung, P., & Fung, A. (2013).{" "}
+        <sup>2</sup> Chung, P., &amp; Fung, A. (2013).{" "}
         <em>Asian Popular Culture in Transition</em>. Routledge.
       </p>
       <p>
-        <sup>3</sup> Kübler-Ross, E., & Kessler, D. (2005).{" "}
+        <sup>3</sup> Kübler-Ross, E., &amp; Kessler, D. (2005).{" "}
         <em>
           On grief and grieving: Finding the meaning of grief through the five
           stages of loss
