@@ -24,7 +24,9 @@ const researchDetails = (
       }
     </p>
 
-    <div></div>
+    <div>
+      <br></br>
+    </div>
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       Therapy & Psychology Research
     </h2>
@@ -107,7 +109,9 @@ const researchDetails = (
         "For simplicity in game design, I am currently focusing on the five core stages of grief. However, in the future, I would consider incorporating a deeper character backstory to explore how personal history shapes an individual's response to loss."
       }
     </p>
-    <div><br></br></div>
+    <div>
+      <br></br>
+    </div>
 
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       {"Game Design & Background"}
@@ -143,12 +147,12 @@ const researchDetails = (
     <p className="text-sm text-white-600 dark:text-gray-400">
       To align the game with its healing theme, I explored translations of the
       word &quot;healing&quot; in different languages. Ultimately, I chose
-      &quot;Chiyu&quot; <strong>{"(치유)"}</strong>, the Korean word for healing, as a representation
-      of my cultural identity. Incorporating Korean traditional elements remains
-      a challenge due to the limited representation of Korean stylized games in
-      the U.S. gaming industry {"(Chung & Fung, 2013)"}. However, I am actively
-      researching ways to blend Korean architecture, mythology, and aesthetics
-      into the game.
+      &quot;Chiyu&quot; <strong>{"(치유)"}</strong>, the Korean word for
+      healing, as a representation of my cultural identity. Incorporating Korean
+      traditional elements remains a challenge due to the limited representation
+      of Korean stylized games in the U.S. gaming industry{" "}
+      {"(Chung & Fung, 2013)"}. However, I am actively researching ways to blend
+      Korean architecture, mythology, and aesthetics into the game.
     </p>
     <p className="text-sm text-white-600 dark:text-gray-400">
       {
@@ -235,7 +239,7 @@ const researchDetails = (
     </p>
     <br />
     <br />
-    
+
     <h2 className="text-xl md:text-2xl font-medium text-white-800 dark:text-gray-200 font-bold">
       References
     </h2>
