@@ -1,16 +1,14 @@
-import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
-import Particles from "@/components/Particles";
 
 const aboutDetails = (
-  <section className="flex flex-col items-center text-center max-w-2xl px-4 mt-6 space-y-6">
+  <section className="reveal flex flex-col items-center text-center max-w-2xl px-4 mt-6 space-y-6">
     <Image
       src="/images/profilePic.jpg"
       width={200}
       height={100}
+      sizes="200px"
+      priority
       className="rounded-2xl shadow-lg"
       alt="Profile"
     />
@@ -39,33 +37,13 @@ const aboutDetails = (
 );
 
 export default function About() {
-  const pageContent = (
-    <div className="relative w-full min-h-screen overflow-hidden slide-in-fwd-center">
-      {/* Particles Background */}
-      <div className="absolute inset-0 z-0">
-        <Particles
-          particleColors={["#faedcd", "#faedcd"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.125}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          alphaParticles={false}
-          disableRotation={false}
-        />
-      </div>
-      <div className="relative z-10 flex flex-col justify-start items-center min-h-screen pt-5">
+  return (
+    <>
+      <Head>
         <title>About</title>
-        <Header />
-        <Navigation />
-        {/* <h1 className="text-4xl font-bold text-white-900 dark:text-white mb-6">About Me</h1> */}
-        <h1>About</h1>
-        {aboutDetails}
-        <Footer />
-      </div>
-    </div>
+      </Head>
+      <h1>About</h1>
+      {aboutDetails}
+    </>
   );
-
-  // Return the variable containing the JSX
-  return pageContent;
 }

@@ -1,38 +1,38 @@
-import Link from "next/link";
-import Image from "next/image";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
+import fs from "fs";
+import path from "path";
+import Head from "next/head";
 import PhotoGallery from "../components/PhotoGallery";
-import Particles from "@/components/Particles";
+import { getImageSize } from "@/lib/imageSize";
 
-export default function Gallery() {
-  const pageContent = (
-    <div className="relative w-full min-h-screen overflow-hidden slide-in-fwd-center">
-      <div className="absolute inset-0 z-0">
-        <Particles
-          particleColors={["#faedcd", "#faedcd"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.125}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          alphaParticles={false}
-          disableRotation={false}
-        />
-      </div>
-      <div className="relative z-10 flex flex-col justify-start items-center min-h-screen pt-5">
+export default function Gallery({ images }) {
+  return (
+    <>
+      <Head>
         <title>Gallery</title>
-        <Header />
-        <Navigation />
-        <h1>Gallery</h1>
-        <div><br/></div>
-        <PhotoGallery />
-        <Footer />
+      </Head>
+      <h1>Gallery</h1>
+      <div>
+        <br />
       </div>
-    </div>
+      <PhotoGallery images={images} />
+    </>
   );
+}
 
-  // Return the variable containing the JSX
-  return pageContent;
+// Read the gallery folder once at build time instead of fetching it from an
+// API route on every visit. The page is now fully static and the thumbnails
+// are in the HTML from the first paint.
+export async function getStaticProps() {
+  const dir = path.join(process.cwd(), "public/gallery");
+  const allowedExtensions = [".jpeg", ".jpg", ".png"];
+
+  const images = fs
+    .readdirSync(dir)
+    .filter((file) => allowedExtensions.includes(path.extname(file).toLowerCase()))
+    .map((file) => {
+      const size = getImageSize(path.join(dir, file)) || { width: 300, height: 200 };
+      return { src: `/gallery/${file}`, width: size.width, height: size.height };
+    });
+
+  return { props: { images } };
 }
