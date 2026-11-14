@@ -11,6 +11,7 @@ const Header = () => {
                     width={100} // Smaller width
                     height={50} // Adjust height to maintain aspect ratio
                     className='flicker-in-glow'
+                    priority
                 />
             </Link>
         </div>

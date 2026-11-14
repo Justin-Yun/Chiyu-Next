@@ -662,3 +662,132 @@ footer {
 .lg-sub-html {
   color: #000 !important; /* Optional: Make captions visible on light background */
 }
+
+/* ------------------------------------------------------------------ */
+/* Modern transitions                                                  */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Particle background fades in once on first load (same timing as the
+   original full-page entrance). */
+.bg-fade-in {
+  animation: bg-fade-in 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes bg-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Foreground: the outgoing page fades out quickly before the incoming one
+   replays the original entrance (.slide-in-fwd-center, above). Opacity only,
+   so it stays on the compositor even for very tall pages. */
+.page-exit {
+  animation: page-exit 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  pointer-events: none;
+}
+
+@keyframes page-exit {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Keep the pill expanded on the current page so the nav shows where you are. */
+.cta:before {
+  transition: width 0.45s var(--ease-out-quint), background 0.3s ease;
+}
+
+.cta[aria-current="page"]:before {
+  width: 100%;
+}
+
+.cta:focus-visible {
+  outline: none;
+}
+
+.cta:focus-visible:before {
+  width: 100%;
+  box-shadow: 0 0 0 2px #faedcd;
+}
+
+/* Footer icons: gentle lift on hover. */
+.icon-link {
+  display: inline-block;
+  transition: transform 0.35s var(--ease-out-quint), opacity 0.35s ease;
+}
+
+.icon-link:hover,
+.icon-link:focus-visible {
+  transform: translateY(-3px) scale(1.12);
+}
+
+.icon-link:active {
+  transform: scale(0.94);
+}
+
+/* Gallery thumbnails: soft zoom + glow on hover. */
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  transition: box-shadow 0.4s var(--ease-out-quint);
+}
+
+.gallery-item img {
+  display: block;
+  transition: transform 0.6s var(--ease-out-quint), filter 0.4s ease;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-visible {
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+  transform: scale(1.05);
+  filter: brightness(1.06);
+}
+
+/* Scroll-driven reveal (CSS only, runs off the main thread where supported).
+   Browsers without scroll-driven animations simply show the content. */
+@supports (animation-timeline: view()) {
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .reveal > *,
+  .gallery-item {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 90%;
+  }
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .bg-fade-in,
+  .slide-in-fwd-center,
+  .page-exit,
+  .reveal > *,
+  .gallery-item,
+  .flicker-in-glow {
+    animation: none !important;
+  }
+
+  .cta:before,
+  .icon-link,
+  .gallery-item,
+  .gallery-item img {
+    transition: none !important;
+  }
+}
