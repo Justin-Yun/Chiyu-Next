@@ -129,7 +129,9 @@ const Particles = ({
     };
 
     if (moveParticlesOnHover) {
-      container.addEventListener("mousemove", handleMouseMove, { passive: true });
+      // Listen on window: the page content sits above the canvas and would
+      // otherwise swallow every mousemove.
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
     }
 
     const count = particleCount;
@@ -224,7 +226,7 @@ const Particles = ({
       window.removeEventListener("resize", onResize);
       cancelAnimationFrame(resizeFrame);
       if (moveParticlesOnHover) {
-        container.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("mousemove", handleMouseMove);
       }
       cancelAnimationFrame(animationFrameId);
       if (container.contains(gl.canvas)) {

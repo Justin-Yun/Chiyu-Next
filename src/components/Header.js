@@ -1,23 +1,21 @@
-import Link from 'next/link';
-import Image from 'next/image'
+import Link from "next/link";
+import Image from "next/image";
+import Navigation from "./Navigation";
 
-const Header = () => {
-    const headerContent = (
-        <div>
-            <Link href="/">
-                <Image
-                    src="/icons/Chiyu-Square.png"
-                    alt="Home Page"
-                    width={100} // Smaller width
-                    height={50} // Adjust height to maintain aspect ratio
-                    className='flicker-in-glow'
-                    priority
-                />
-            </Link>
-        </div>
-    )
-
-    return headerContent;
-};
+const Header = () => (
+  <header className="topbar">
+    <Link href="/" className="brand" aria-label="Chiyu home">
+      <Image
+        src="/icons/Chiyu-Square.png"
+        alt=""
+        width={44}
+        height={45}
+        className="flicker-in-glow"
+        priority
+      />
+    </Link>
+    <Navigation />
+  </header>
+);
 
 export default Header;

@@ -1,15 +1,12 @@
 import { useRouter } from "next/router";
 import Header from "./Header";
-import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Particles from "./Particles";
 import PageTransition from "./PageTransition";
 
 // Shared shell for every page. Because it lives in _app, the WebGL particle
-// background mounts once and keeps running across client-side navigations
-// instead of being torn down and rebuilt (new WebGL context) on every page.
-// The foreground (header, nav, page, footer) still replays the site's
-// entrance animation on every navigation, as it did before.
+// background and the top bar mount once and stay put across client-side
+// navigations; only the page content (and footer) transitions.
 export default function Layout({ children }) {
   const { pathname } = useRouter();
 
@@ -30,14 +27,10 @@ export default function Layout({ children }) {
         />
       </div>
 
-      {/* Foreground Content */}
-      <PageTransition
-        routeKey={pathname}
-        className="relative z-10 flex flex-col justify-start items-center min-h-screen pt-5"
-      >
-        <Header />
-        <Navigation />
-        {children}
+      <Header />
+
+      <PageTransition routeKey={pathname} className="page">
+        <main className="page-main">{children}</main>
         <Footer />
       </PageTransition>
     </>

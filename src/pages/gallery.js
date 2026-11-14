@@ -10,11 +10,13 @@ export default function Gallery({ images }) {
       <Head>
         <title>Gallery</title>
       </Head>
-      <h1>Gallery</h1>
-      <div>
-        <br />
-      </div>
-      <PhotoGallery images={images} />
+      <section className="gallery-page">
+        <header className="gallery-head">
+          <h1>Gallery</h1>
+          <p>Concept art for Chiyu. Select an image to view it full size.</p>
+        </header>
+        <PhotoGallery images={images} />
+      </section>
     </>
   );
 }

@@ -1,146 +1,681 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/* Tokens                                                              */
+/* Night sky + paper light from the hanok drawing; sky and ember come  */
+/* from its two taeguk swirls and are used only as small markers.      */
+/* ------------------------------------------------------------------ */
 :root {
-  background-color: #282828;
-  font-family: "Lora", serif;
-  letter-spacing: 0.055em;
-  color: white;
-}
+  --night: #1a1d23;
+  --night-raised: #23272f;
+  --paper: #f4ecdc;
+  --paper-muted: rgba(244, 236, 220, 0.72);
+  --paper-faint: rgba(244, 236, 220, 0.5);
+  --line: rgba(244, 236, 220, 0.14);
+  --glass: rgba(30, 34, 41, 0.58);
+  --sky: #7cc8ff;
+  --ember: #e0493d;
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
+  --radius-sheet: 28px;
+  --radius-media: 18px;
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
-h1 {
-  text-shadow: 2px 2px 10px rgb(68, 68, 68);
-  font-size: 2.5em;
-  font-family: "Lora", serif;
-}
-
-h2 {
-  font-size: 2em;
-  text-shadow: 2px 2px 10px rgb(68, 68, 68);
-  font-family: "Lora", serif;
-}
-
-p {
-  font-family: "Montserrat", sans-serif;
-}
-
-ol {
-  font-family: "Montserrat", sans-serif;
-}
-
-li {
-  font-family: "Montserrat", sans-serif;
+  background-color: var(--night);
+  color: var(--paper);
+  color-scheme: dark;
 }
 
 body {
-  /* background: var(--background);
-  color: var(--foreground); */
+  background-color: var(--night);
+  color: var(--paper);
 }
 
-footer {
+.app-root {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
-/* CSS */
-/* From Uiverse.io by alexmaracinaru */
-.cta {
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--sky);
+  color: var(--night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Glass surface: frosted night panel that floats over the stars       */
+/* ------------------------------------------------------------------ */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 1px 0 rgba(244, 236, 220, 0.06) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+}
+
+/* ------------------------------------------------------------------ */
+/* Top bar                                                             */
+/* ------------------------------------------------------------------ */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(16px, 4vw, 40px);
+  pointer-events: none;
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.brand {
+  display: block;
+  border-radius: 12px;
+}
+
+.brand img {
+  display: block;
+}
+
+/* Nav: hand-lettered links on the night sky, matching the logo. The
+   current page gets a chalk box like the one around "Chiyu". */
+.nav {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+}
+
+.nav-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.nav-link {
   position: relative;
-  margin: auto;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
+  padding: 4px 14px 2px;
+  font-family: var(--font-hand), var(--font-sans), sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--paper-muted);
+  text-shadow: 0 1px 8px rgba(26, 29, 35, 0.9);
+  transition: color 0.25s ease;
 }
 
-.cta:before {
+.nav-link::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 50px;
-  background: #5f6452;
-  width: 45px;
-  height: 45px;
-  transition: all 0.3s ease;
+  inset: 0;
+  border: 2px solid var(--paper);
+  border-radius: 6px;
+  filter: url(#chalk-edge);
+  opacity: 0;
+  transform: rotate(-1.5deg) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.45s var(--ease-out-quint);
+  pointer-events: none;
 }
 
-.cta span {
+.nav-link:nth-child(3)::before {
+  transform: rotate(1deg) scale(0.9);
+}
+
+.nav-link:hover {
+  color: var(--paper);
+}
+
+.nav-link:hover::before {
+  opacity: 0.35;
+  transform: rotate(-1.5deg) scale(1);
+}
+
+.nav-link:nth-child(3):hover::before {
+  transform: rotate(1deg) scale(1);
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--paper);
+}
+
+.nav-link[aria-current="page"]::before {
+  opacity: 0.9;
+  transform: rotate(-1.5deg) scale(1);
+}
+
+.nav-link:nth-child(3)[aria-current="page"]::before {
+  transform: rotate(1deg) scale(1);
+}
+
+.nav-link:focus-visible {
+  outline: none;
+}
+
+.nav-link:focus-visible::before {
+  opacity: 1;
+  border-color: var(--sky);
+  transform: rotate(-1.5deg) scale(1);
+}
+
+@media (max-width: 420px) {
+  .nav-link {
+    padding: 4px 10px 2px;
+    font-size: 24px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Page shell                                                          */
+/* ------------------------------------------------------------------ */
+.page {
   position: relative;
-  font-size: 18px;
-  font-weight: normal;
-  /* Ensure it's not bold */
-  /* font-weight: 700; */
-  letter-spacing: 0.05em;
-  color: #ffffff;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  /*stroke: #234567;*/
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-}
-
-.cta:hover:before {
+.page-main {
+  flex: 1;
   width: 100%;
-  background: #5f6452;
+  padding: 104px clamp(16px, 4vw, 40px) 0;
 }
 
-.cta:hover svg {
-  transform: translateX(0);
+/* ------------------------------------------------------------------ */
+/* Buttons                                                             */
+/* ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.35s var(--ease-out-quint), background-color 0.25s ease,
+    box-shadow 0.35s var(--ease-out-quint);
 }
 
-.cta:active {
-  transform: scale(0.95);
+.btn:active {
+  transform: scale(0.97);
 }
 
-
-/* Transitions CSS */
-.focus-in {
-  -webkit-animation: focus-in 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-  animation: focus-in 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+.btn-primary {
+  background: var(--paper);
+  color: var(--night);
+  box-shadow: 0 0 0 4px rgba(244, 236, 220, 0.12);
 }
 
-@-webkit-keyframes focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
+.btn-primary:hover {
+  box-shadow: 0 0 0 6px rgba(244, 236, 220, 0.18);
+}
+
+.btn-ghost {
+  color: var(--paper);
+}
+
+.btn-ghost:hover {
+  background: rgba(244, 236, 220, 0.12);
+}
+
+/* ------------------------------------------------------------------ */
+/* Home: the hanok scene is the page                                   */
+/* ------------------------------------------------------------------ */
+.home {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100svh - 104px - 96px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.home-scene {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+.home-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-card {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: var(--radius-sheet);
+}
+
+.home-hangul {
+  font-family: var(--font-display), serif;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 12px;
+  color: var(--paper);
+}
+
+.home-card h1 {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.home-card p {
+  color: var(--paper-muted);
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* The stars only follow a mouse, so skip the hint on touch screens. */
+@media (hover: none) {
+  .hint {
+    display: none;
   }
+}
 
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
+.hint {
+  justify-self: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--paper-muted);
+}
+
+@media (min-width: 1024px) {
+  .home {
+    grid-template-columns: 420px minmax(0, 1fr);
+    grid-template-areas:
+      "card scene"
+      "hint hint";
+    gap: 32px 48px;
+  }
+  .home-card {
+    grid-area: card;
+    margin: 0;
+  }
+  .home-scene {
+    grid-area: scene;
+  }
+  .hint {
+    grid-area: hint;
   }
 }
 
-@keyframes focus-in {
-  0% {
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
+/* ------------------------------------------------------------------ */
+/* Reading sheet (About, Research)                                     */
+/* ------------------------------------------------------------------ */
+.sheet {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px);
+  border-radius: var(--radius-sheet);
+  /* No backdrop-filter here: long pages make this element thousands of
+     pixels tall, and Chrome stops painting blurred layers that large. */
+  background: rgba(30, 34, 41, 0.9);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(244, 236, 220, 0.06) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+}
 
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
+.sheet-head {
+  margin-bottom: 32px;
+}
+
+.sheet-head h1 {
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1.1;
+}
+
+.sheet-head p {
+  margin-top: 12px;
+  font-size: 18px;
+  color: var(--paper-muted);
+  max-width: 34em;
+}
+
+.prose > * + * {
+  margin-top: 16px;
+}
+
+.prose p,
+.prose li {
+  color: var(--paper-muted);
+  max-width: 68ch;
+}
+
+.prose strong {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.prose em {
+  color: var(--paper);
+}
+
+.prose h2 {
+  font-size: clamp(26px, 4vw, 32px);
+  line-height: 1.2;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.prose h3 {
+  font-size: 20px;
+  line-height: 1.3;
+  margin-top: 36px;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: 10px;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+
+.prose ul > li + li,
+.prose ol > li + li {
+  margin-top: 6px;
+}
+
+.prose ul li::marker {
+  color: var(--paper-faint);
+}
+
+.prose a {
+  color: var(--sky);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-word;
+}
+
+.lede {
+  font-family: var(--font-display), serif;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.prose .lede {
+  color: var(--paper);
+}
+
+/* The five stages are a real sequence, so they get numbers. */
+.stages {
+  counter-reset: stage;
+  display: grid;
+  gap: 8px;
+}
+
+.stages li {
+  counter-increment: stage;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(244, 236, 220, 0.05);
+}
+
+.stages li::before {
+  content: counter(stage);
+  font-family: var(--font-display), serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--paper);
+}
+
+/* Color symbolism: each stage shows its palette as swatches. */
+.palettes {
+  display: grid;
+  gap: 8px;
+}
+
+.palettes li {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 4px 16px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(244, 236, 220, 0.05);
+}
+
+.palettes .palette-name {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.palettes .palette-note {
+  grid-column: 2;
+  font-size: 14px;
+}
+
+.swatches {
+  display: flex;
+  gap: 6px;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 236, 220, 0.35);
+}
+
+@media (max-width: 520px) {
+  .palettes li {
+    grid-template-columns: 1fr;
+  }
+  .palettes .palette-note {
+    grid-column: 1;
   }
 }
 
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-media);
+}
+
+.figure figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--paper-faint);
+}
+
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .figure-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.prose .figure,
+.prose .figure-pair {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.references {
+  list-style: decimal;
+  padding-left: 1.5em;
+  font-size: 14px;
+}
+
+.references li::marker {
+  color: var(--paper-faint);
+}
+
+/* About: portrait beside the bio on wider screens. */
+.about {
+  display: grid;
+  gap: 32px;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: var(--radius-media);
+}
+
+@media (min-width: 760px) {
+  .about {
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+  }
+  .about-photo {
+    position: sticky;
+    top: 104px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Gallery                                                             */
+/* ------------------------------------------------------------------ */
+.gallery-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-head {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.gallery-head h1 {
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1.1;
+}
+
+.gallery-head p {
+  margin-top: 8px;
+  color: var(--paper-muted);
+}
+
+.gallery {
+  columns: 2;
+  column-gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    columns: 3;
+    column-gap: 16px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Footer                                                              */
+/* ------------------------------------------------------------------ */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 20px;
+  padding: 48px 16px 40px;
+}
+
+.site-footer-name {
+  font-size: 14px;
+  color: var(--paper-faint);
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-link {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out-quint), background-color 0.25s ease;
+}
+
+.icon-link img {
+  display: block;
+}
+
+.icon-link:hover,
+.icon-link:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(244, 236, 220, 0.14);
+}
+
+.icon-link:active {
+  transform: scale(0.94);
+}
+
+/* ------------------------------------------------------------------ */
+/* Lightbox (lightGallery) — light theme for viewing artwork           */
+/* ------------------------------------------------------------------ */
+.lg-backdrop {
+  background-color: #f5f5dc !important;
+}
+
+.lg-outer .lg-item {
+  background-color: #f5f5dc !important;
+}
+
+.lg-sub-html {
+  color: #000 !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
 .flicker-in-glow {
   -webkit-animation: text-flicker-in-glow 4s linear both;
   animation: text-flicker-in-glow 4s linear both;
@@ -458,221 +993,24 @@ footer {
   }
 }
 
+
+/* Incoming page: a short fade-and-settle. */
 .slide-in-fwd-center {
-  -webkit-animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: page-enter 0.9s var(--ease-out-quint) both;
 }
 
-@-webkit-keyframes slide-in-fwd-center {
-  0% {
-    -webkit-transform: translateZ(-1400px);
-    transform: translateZ(-1400px);
+@keyframes page-enter {
+  from {
     opacity: 0;
+    transform: translate3d(0, 12px, 0);
   }
-
-  100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+  to {
     opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes slide-in-fwd-center {
-  0% {
-    -webkit-transform: translateZ(-1400px);
-    transform: translateZ(-1400px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    opacity: 1;
-  }
-}
-
-
-/* Photo Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.btn1 {
-  position: relative;
-  padding: 10px 22px;
-  border-radius: 6px;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  background-color: #6e402b;
-  transition: all 0.2s ease;
-}
-
-.btn1:active {
-  transform: scale(0.96);
-}
-
-.btn1:before,
-.btn1:after {
-  position: absolute;
-  content: "";
-  width: 150%;
-  left: 50%;
-  height: 100%;
-  transform: translateX(-50%);
-  z-index: -1000;
-  background-repeat: no-repeat;
-}
-
-.btn1:hover:before {
-  top: -70%;
-  background-image: radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #6e402b 20%, transparent 30%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #6e402b 15%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-    10% 10%, 18% 18%;
-  background-position: 50% 120%;
-  animation: greentopBubbles 0.6s ease;
-}
-
-@keyframes greentopBubbles {
-  0% {
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-      40% 90%, 55% 90%, 70% 90%;
-  }
-
-  50% {
-    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-      50% 50%, 65% 20%, 90% 30%;
-  }
-
-  100% {
-    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-      50% 40%, 65% 10%, 90% 20%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
-
-.btn1:hover::after {
-  bottom: -70%;
-  background-image: radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #6e402b 15%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%),
-    radial-gradient(circle, #6e402b 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
-  background-position: 50% 0%;
-  animation: greenbottomBubbles 0.6s ease;
-}
-
-@keyframes greenbottomBubbles {
-  0% {
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-      70% -10%, 70% 0%;
-  }
-
-  50% {
-    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-      105% 0%;
-  }
-
-  100% {
-    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-      110% 10%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
-
-.button-56 {
-  align-items: center;
-  background-color: #6e402b;
-  border: 3px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-56:after {
-  background-color: #3d2012;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-
-.button-56:hover:after {
-  transform: translate(0, 0);
-}
-
-.button-56:active {
-  background-color: #6e402b;
-  outline: 0;
-}
-
-.button-56:hover {
-  outline: 0;
-}
-
-@media (min-width: 768px) {
-  .button-56 {
-    padding: 0 40px;
-  }
-}
-
-/* Light theme for when user clicks on image for LightGallery */
-.lg-backdrop {
-  background-color: #f5f5dc !important; /* Light background */
-}
-
-.lg-outer .lg-item {
-  background-color: #f5f5dc !important;
-}
-
-.lg-sub-html {
-  color: #000 !important; /* Optional: Make captions visible on light background */
-}
-
-/* ------------------------------------------------------------------ */
-/* Modern transitions                                                  */
-/* ------------------------------------------------------------------ */
-
-:root {
-  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Particle background fades in once on first load (same timing as the
-   original full-page entrance). */
+/* Particle background fades in once on first load. */
 .bg-fade-in {
   animation: bg-fade-in 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -682,9 +1020,7 @@ footer {
   to { opacity: 1; }
 }
 
-/* Foreground: the outgoing page fades out quickly before the incoming one
-   replays the original entrance (.slide-in-fwd-center, above). Opacity only,
-   so it stays on the compositor even for very tall pages. */
+/* Outgoing page fades out quickly before the incoming one enters. */
 .page-exit {
   animation: page-exit 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
   pointer-events: none;
@@ -695,64 +1031,45 @@ footer {
   to { opacity: 0; }
 }
 
-/* Keep the pill expanded on the current page so the nav shows where you are. */
-.cta:before {
-  transition: width 0.45s var(--ease-out-quint), background 0.3s ease;
-}
-
-.cta[aria-current="page"]:before {
-  width: 100%;
-}
-
-.cta:focus-visible {
-  outline: none;
-}
-
-.cta:focus-visible:before {
-  width: 100%;
-  box-shadow: 0 0 0 2px #faedcd;
-}
-
-/* Footer icons: gentle lift on hover. */
-.icon-link {
-  display: inline-block;
-  transition: transform 0.35s var(--ease-out-quint), opacity 0.35s ease;
-}
-
-.icon-link:hover,
-.icon-link:focus-visible {
-  transform: translateY(-3px) scale(1.12);
-}
-
-.icon-link:active {
-  transform: scale(0.94);
-}
-
-/* Gallery thumbnails: soft zoom + glow on hover. */
+/* Gallery thumbnails: soft zoom on hover. */
 .gallery-item {
   display: block;
+  break-inside: avoid;
+  margin-bottom: 12px;
   overflow: hidden;
+  border-radius: 14px;
+  /* Most artwork is transparent PNG with dark linework, so each tile sits
+     on paper (the same light tone the lightbox uses). */
+  background: #f5f0e4;
   transition: box-shadow 0.4s var(--ease-out-quint);
+}
+
+@media (min-width: 768px) {
+  .gallery-item {
+    margin-bottom: 16px;
+  }
 }
 
 .gallery-item img {
   display: block;
+  width: 100%;
+  height: auto;
   transition: transform 0.6s var(--ease-out-quint), filter 0.4s ease;
 }
 
 .gallery-item:hover,
 .gallery-item:focus-visible {
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-item:hover img,
 .gallery-item:focus-visible img {
-  transform: scale(1.05);
+  transform: scale(1.04);
   filter: brightness(1.06);
 }
 
-/* Scroll-driven reveal (CSS only, runs off the main thread where supported).
-   Browsers without scroll-driven animations simply show the content. */
+/* Scroll-driven reveal for gallery thumbnails (CSS only). Browsers
+   without scroll-driven animations simply show the content. */
 @supports (animation-timeline: view()) {
   @keyframes reveal {
     from {
@@ -765,7 +1082,6 @@ footer {
     }
   }
 
-  .reveal > *,
   .gallery-item {
     animation: reveal linear both;
     animation-timeline: view();
@@ -778,13 +1094,14 @@ footer {
   .bg-fade-in,
   .slide-in-fwd-center,
   .page-exit,
-  .reveal > *,
   .gallery-item,
   .flicker-in-glow {
     animation: none !important;
   }
 
-  .cta:before,
+  .nav-link,
+  .nav-link::before,
+  .btn,
   .icon-link,
   .gallery-item,
   .gallery-item img {

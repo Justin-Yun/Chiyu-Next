@@ -32,21 +32,23 @@ const Footer = () => {
   useEffect(() => () => lightboxRef.current?.destroy(), []);
 
   return (
-    <div className="flex space-x-4 items-center mt-12 mb-10">
-      <footer>&copy; Hannah Lee</footer>
-      <Link href="https://www.instagram.com/hli.xi/" target="_blank" rel="noopener noreferrer" className="icon-link">
-        <Image src="/icons/instagram.png" alt="Instagram" width={20} height={20} />
-      </Link>
-      <Link href="https://www.linkedin.com/in/hlixi/" target="_blank" rel="noopener noreferrer" className="icon-link">
-        <Image src="/icons/linkedin.png" alt="LinkedIn" width={20} height={20} />
-      </Link>
-      <Link href="https://www.hlixi.com/" target="_blank" rel="noopener noreferrer" className="icon-link">
-        <Image src="/icons/jellyfish.png" alt="Portfolio" width={20} height={20} />
-      </Link>
-      <a href={QR_SRC} onClick={openQr} className="icon-link cursor-pointer">
-        <Image src="/icons/fish.png" alt="QR Code" width={20} height={20} />
-      </a>
-    </div>
+    <footer className="site-footer">
+      <p className="site-footer-name">&copy; Hannah Lee</p>
+      <div className="site-footer-links">
+        <Link href="https://www.instagram.com/hli.xi/" target="_blank" rel="noopener noreferrer" className="icon-link glass" aria-label="Instagram">
+          <Image src="/icons/instagram.png" alt="" width={18} height={18} />
+        </Link>
+        <Link href="https://www.linkedin.com/in/hlixi/" target="_blank" rel="noopener noreferrer" className="icon-link glass" aria-label="LinkedIn">
+          <Image src="/icons/linkedin.png" alt="" width={18} height={18} />
+        </Link>
+        <Link href="https://www.hlixi.com/" target="_blank" rel="noopener noreferrer" className="icon-link glass" aria-label="Portfolio">
+          <Image src="/icons/jellyfish.png" alt="" width={18} height={18} />
+        </Link>
+        <a href={QR_SRC} onClick={openQr} className="icon-link glass" aria-label="Show QR code">
+          <Image src="/icons/fish.png" alt="" width={18} height={18} />
+        </a>
+      </div>
+    </footer>
   );
 };
 
