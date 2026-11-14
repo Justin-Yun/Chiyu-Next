@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import Image, { getImageProps } from "next/image";
 
-const THUMB_WIDTH = 300;
+const THUMB_WIDTH = 480;
 
 const scaledHeight = (width, image) => Math.round((width * image.height) / image.width);
 
@@ -85,7 +85,7 @@ const PhotoGallery = ({ images = [] }) => {
               alt=""
               width={THUMB_WIDTH}
               height={scaledHeight(THUMB_WIDTH, image)}
-              sizes="(max-width: 960px) 33vw, 300px"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
             />
           </a>
         );
