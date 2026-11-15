@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "lightgallery": "^2.0.0",
-    "next": "15.2.6",
+    "next": "15.5.29",
     "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -20,7 +20,7 @@
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "15.2.1",
+    "eslint-config-next": "15.5.29",
     "tailwindcss": "^1.9.6"
   }
 }
